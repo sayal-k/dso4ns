@@ -1,0 +1,67 @@
+{
+    "experiment" : {
+      "exp_name" : "symb4co",
+      "logdir" : "./log"
+    },
+    "task" : {
+      "task_type" : "regression",
+      "function_set" : ["add", "sub", "mul", "div", "exp", "log", "n2", "0.2", "0.5", "5", "2"]
+    },
+    "training" : {
+      "epsilon": 0.2,
+      "batch_size" : 500,
+      "baseline" : "R_e",
+      "early_stopping" : true,
+      "valid_path" : "../node_selection/data_svm/FCMCNF/valid",
+      "complexity_limit" : 10      
+    },
+    "logging" : {
+      "save_all_iterations" : false,
+      "save_summary" : false,
+      "save_positional_entropy" : false,
+      "save_pareto_front" : true,
+      "save_cache" : true,
+      "save_cache_r_min" : 0.7,
+      "save_freq" : 1,
+      "save_token_count" : false,
+      "hof" : 100
+   },
+    "policy" : {
+      "policy_type" : "rnn", 
+      "max_length" : 64,
+      "cell" : "lstm",
+      "num_layers" : 2,
+      "num_units" : 128,
+      "initializer" : "zeros"
+    },
+    "policy_optimizer" : {
+      "learning_rate" : 0.00005,
+      "entropy_weight" : 0.05,
+      "optimizer" : "adam",
+      "policy_optimizer_type" : "ppo",
+      "ppo_n_iters" : 8,
+      "ppo_clip_ratio" : 0.2,
+      "entropy_gamma" : 0.9
+    },
+    "prior" : {
+      "length" : {
+        "min_" : 4,
+        "max_" : 10,
+        "on" : true
+      },
+      "inverse" : {
+        "on" : true
+      },
+      "trig" : {
+        "on" : true
+      },
+      "const" : {
+        "on" : true
+      },
+      "soft_length" : {
+      "loc" : 20,
+      "scale" : 8,
+      "on" : true
+      }
+    }
+}
