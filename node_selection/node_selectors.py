@@ -378,7 +378,11 @@ class OracleNodeSelectorEstimator_GP(CustomNodeSelector):
         return -1 if decision < 0 else 1
 
 class OracleNodeSelectorEstimator_Symb(CustomNodeSelector):
-    
+    '''
+    It uses a symbolic regression model to estimate the node comparison.
+    The symbolic regression model is trained on the features of the nodes
+    and the comparison result.
+    '''
     def __init__(self, problem, comp_featurizer, nums_instances, sel_policy='', n_primal=2):
         super().__init__(sel_policy=sel_policy)
         
@@ -457,7 +461,11 @@ class OracleNodeSelectorEstimator_Symb(CustomNodeSelector):
     
     
 class OracleNodeSelectorEstimator_Symm(CustomNodeSelector):
-    
+    '''
+    It uses a symbolic regression model to estimate the node comparison.
+    The symbolic regression expression is trained on the features of one node for symmetry
+    and the comparison result of two nodes.
+    '''
     def __init__(self, problem, comp_featurizer, nums_instances, sel_policy='', n_primal=2):
         super().__init__(sel_policy=sel_policy)
         
