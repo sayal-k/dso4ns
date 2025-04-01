@@ -2,7 +2,6 @@ import os
 import argparse
 import numpy as np
 import scipy.sparse
-import utilities
 from itertools import combinations
 
 '''
@@ -527,7 +526,6 @@ if __name__ == '__main__':
     parser.add_argument(
         '-s', '--seed',
         help='Random generator seed (default 0).',
-        type=utilities.valid_seed,
         default=0,
     )
     args = parser.parse_args()
