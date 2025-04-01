@@ -11,7 +11,7 @@ import numpy as np
 import torch
 from torch.multiprocessing import Process, set_start_method
 from functools import partial
-from utils_copy import record_stats, display_stats, distribute
+from utils import record_stats, display_stats, distribute
 from pathlib import Path 
 
 if __name__ == "__main__":
